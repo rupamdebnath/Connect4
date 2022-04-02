@@ -126,11 +126,15 @@ int main()
         }
         window.clear();
         window.draw(main_board);
-        for (int i = 0; i < 21; i++) //bluecount,redcount 2 loops
+        for (int i = 0; i < redcount; i++) 
         {
             window.draw(red[i]);
+        }
+        for (int i = 0; i < bluecount; i++)
+        {
             window.draw(blue[i]);
         }
+        window.display();
         window.display();
     }
 
