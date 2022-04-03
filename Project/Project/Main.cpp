@@ -13,7 +13,7 @@ Texture blue_checker;
 int currentBoard[HEIGHT][WIDTH];
 int turns, redcount = 0, bluecount = 0;
 bool redTurn;
-int columnMax[WIDTH];
+int columnMax[WIDTH] = { 0 };
 
 Sprite main_board;
 Sprite blue[21];
@@ -38,10 +38,10 @@ void set()
     bluecount = 0;
     for (int i = 0; i < HEIGHT; i++)
     {
-        columnMax[i] = 0;
+        //columnMax[i] = 0;
         for (int j = 0; j < WIDTH; j++)
         {
-            currentBoard[i][j] = 0;
+            currentBoard[i][j] = 0;            
         }
     }
 }
@@ -53,16 +53,18 @@ void PlayRedTurn(int a)
         columnMax[a - 1]++;
         for (int i = HEIGHT - 1; i >= 0; i--)
         {
-            if (currentBoard[a - 1][i] == 0)
-            {
-                currentBoard[a - 1][i] = 1;
-                red[redcount].setPosition((a - 1) * 100, i * 100);
+            if (currentBoard[i][a - 1] == 0)
+            {                
+                currentBoard[i][a-1] = 1;
+                red[redcount].setPosition(((a - 1) * 100), (i * 100));
                 redcount++;
+                redTurn = false;
                 break;
             }
         }
     }
-
+    else
+        redTurn = true;
 }
 
 void PlayBlueTurn(int a)
@@ -71,17 +73,19 @@ void PlayBlueTurn(int a)
     {
         columnMax[a - 1]++;
         for (int i = HEIGHT - 1; i >= 0; i--)
-        {
-            if (currentBoard[a - 1][i] == 0)
+        { 
+            if (currentBoard[i][a - 1] == 0)
             {
-                currentBoard[a - 1][i] = 1;
-                blue[bluecount].setPosition((a - 1) * 100, i * 100);
+                currentBoard[i][a - 1] = 1;
+                blue[bluecount].setPosition(((a - 1) * 100), (i * 100));
                 bluecount++;
+                redTurn = true;
                 break;
             }
         }
     }
-
+    else
+        redTurn = false;
 }
 
 int main()
@@ -112,13 +116,11 @@ int main()
                     //cout << pos.x << " " << pos.y << endl;
                     if (redTurn)
                     {
-                        PlayRedTurn(pos.x);
-                        redTurn = false;
+                        PlayRedTurn(pos.x);                        
                     }
                     else
                     {
-                        PlayBlueTurn(pos.x);
-                        redTurn = true;
+                        PlayBlueTurn(pos.x);                        
                     }
                     turns++;
                 }
