@@ -270,6 +270,15 @@ int main()
         }
         else if (EndGame() && turns == 42)
         {
+            for (int i = 0; i < redcount; i++)
+            {
+                window.draw(red[i]);
+            }
+            for (int i = 0; i < bluecount; i++)
+            {
+                window.draw(blue[i]);
+            }
+            window.display();
             system("pause");
             set();
         }
