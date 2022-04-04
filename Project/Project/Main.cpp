@@ -196,11 +196,17 @@ bool EndGame()
 
 int main()
 {
-    RenderWindow window(sf::VideoMode(700, 600), "Connect4");
-
-    set();
+    RenderWindow window(sf::VideoMode(700, 600), "Connect 4 the Game");
+    Font font;
+    font.loadFromFile("Fonts/Myfont.ttf");
+    Text text;
+    text.setFont(font);
+    text.setString("Hello! This is a 2-player Game, so hope you have got \nyour partner alongside, the turn takes place with\nevery Mouse Click. There are red balls and blue balls,\nevery click inserts a ball into the respective column, \nstarting with Red, so whoever starts the game is Red\nand the other player would be Blue! The Player who\ncan successfully connect 4 same coloured balls in a\nstraight Line, horizontally, vertically, or diagonally\nwins the Game! Hit Enter to Start..");
+    text.setCharacterSize(24);
+    text.setFillColor(sf::Color::Red);
+    
     while (window.isOpen())
-    {
+    {        
         Event e;
         Vector2i pos;
         while (window.pollEvent(e))
@@ -208,6 +214,11 @@ int main()
             if (e.type == Event::Closed)
             {
                 window.close();
+            }
+            if (e.type == Event::KeyPressed)
+            {
+                if (e.key.code == Keyboard::Enter)
+                    set();
             }
             if (e.type == Event::MouseButtonPressed)
             {
@@ -231,6 +242,7 @@ int main()
             }
         }
         window.clear();
+        window.draw(text);
         window.draw(main_board);        
         for (int i = 0; i < redcount; i++) 
         {
@@ -241,7 +253,7 @@ int main()
             window.draw(blue[i]);            
         }        
         window.display();        
-        if (EndGame())
+        if (EndGame() && turns != 42)
         {
             for (int i = 0; i < redcount; i++)
             {
@@ -255,6 +267,10 @@ int main()
             window.display();
             system("pause");
             set();
+        }
+        else if (EndGame() && turns == 42)
+        {
+
         }
     }
     return 0;
