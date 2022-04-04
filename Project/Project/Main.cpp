@@ -253,7 +253,7 @@ int main()
             window.draw(blue[i]);            
         }        
         window.display();        
-        if (EndGame() && turns != 42)
+        if (EndGame())
         {
             for (int i = 0; i < redcount; i++)
             {
@@ -264,20 +264,6 @@ int main()
                 window.draw(blue[i]);
             }
             window.draw(line);
-            window.display();
-            system("pause");
-            set();
-        }
-        else if (EndGame() && turns == 42)
-        {
-            for (int i = 0; i < redcount; i++)
-            {
-                window.draw(red[i]);
-            }
-            for (int i = 0; i < bluecount; i++)
-            {
-                window.draw(blue[i]);
-            }
             window.display();
             system("pause");
             set();
