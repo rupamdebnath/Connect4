@@ -18,13 +18,17 @@ int columnMax[WIDTH] = { 0 };
 Sprite main_board;
 Sprite blue[21];
 Sprite red[21];
+VertexArray line(Lines, 2);
 
 void set()
 {
     board.loadFromFile("Images/board.png");
     red_checker.loadFromFile("Images/red.png");
     blue_checker.loadFromFile("Images/blue.png");
-
+    //line[0].position = Vector2f(0, 0);
+    line[0].color = Color::Black;
+    //line[1].position = Vector2f(0, 0);
+    line[1].color = Color::Black;
     main_board.setTexture(board);
     for (int i = 0; i < 21; i++)
     {
@@ -101,12 +105,20 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i][j + 1] == 1 && currentBoard[i][j + 2] == 1 && currentBoard[i][j + 3] == 1)
             {
-                cout << "Red has won!\n";                
+                cout << "Red has won!\n";  
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i][j + 1] == 2 && currentBoard[i][j + 2] == 2 && currentBoard[i][j + 3] == 2)
             {
-                cout << "Blue has won!\n";                
+                cout << "Blue has won!\n"; 
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
         }
@@ -119,12 +131,20 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j] == 1 && currentBoard[i + 2][j] == 1 && currentBoard[i + 3][j] == 1)
             {
-                cout << "Red has won!\n";                
+                cout << "Red has won!\n";   
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j] == 2 && currentBoard[i + 2][j] == 2 && currentBoard[i + 3][j] == 2)
             {
-                cout << "Blue has won!\n";                
+                cout << "Blue has won!\n";    
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
         }
@@ -137,12 +157,20 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j + 1] == 1 && currentBoard[i + 2][j + 2] == 1 && currentBoard[i + 3][j + 3] == 1)
             {
-                cout << "Red has won!\n";               
+                cout << "Red has won!\n";   
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j + 1] == 2 && currentBoard[i + 2][j + 2] == 2 && currentBoard[i + 3][j + 3] == 2)
             {
-                cout << "Blue has won!\n";                
+                cout << "Blue has won!\n";
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
         }
@@ -154,12 +182,20 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j - 1] == 1 && currentBoard[i + 2][j - 2] == 1 && currentBoard[i + 3][j - 3] == 1)
             {
-                cout << "Red has won!\n";                
+                cout << "Red has won!\n";   
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j - 1] == 2 && currentBoard[i + 2][j - 2] == 2 && currentBoard[i + 3][j - 3] == 2)
             {
-                cout << "Blue has won!\n";                
+                cout << "Blue has won!\n";      
+                line[0].position = Vector2f(100, 200);
+                //line[0].color = Color::Black;
+                line[1].position = Vector2f(400, 500);
+                //line[1].color = Color::Black;
                 return true;
             }
         }
@@ -211,22 +247,23 @@ int main()
             }
         }
         window.clear();
-        window.draw(main_board);
+        window.draw(main_board);        
         for (int i = 0; i < redcount; i++) 
         {
-            window.draw(red[i]);
+            window.draw(red[i]);           
         }
         for (int i = 0; i < bluecount; i++)
         {
-            window.draw(blue[i]);
-        }
-        window.display();
+            window.draw(blue[i]);            
+        }        
+        window.display();        
         if (EndGame())
         {
+            window.draw(line);
+            window.display();
             system("pause");
             set();
         }
     }
-
     return 0;
 }
