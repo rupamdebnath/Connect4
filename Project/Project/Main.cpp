@@ -101,14 +101,12 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i][j + 1] == 1 && currentBoard[i][j + 2] == 1 && currentBoard[i][j + 3] == 1)
             {
-                cout << "Red has won!\n";
-                //system("pause");
+                cout << "Red has won!\n";                
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i][j + 1] == 2 && currentBoard[i][j + 2] == 2 && currentBoard[i][j + 3] == 2)
             {
-                cout << "Blue has won!\n";
-                //system("pause");
+                cout << "Blue has won!\n";                
                 return true;
             }
         }
@@ -121,14 +119,12 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j] == 1 && currentBoard[i + 2][j] == 1 && currentBoard[i + 3][j] == 1)
             {
-                cout << "Red has won!\n";
-                //system("pause");
+                cout << "Red has won!\n";                
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j] == 2 && currentBoard[i + 2][j] == 2 && currentBoard[i + 3][j] == 2)
             {
-                cout << "Blue has won!\n";
-                //system("pause");
+                cout << "Blue has won!\n";                
                 return true;
             }
         }
@@ -141,14 +137,12 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j + 1] == 1 && currentBoard[i + 2][j + 2] == 1 && currentBoard[i + 3][j + 3] == 1)
             {
-                cout << "Red has won!\n";
-                system("pause");
+                cout << "Red has won!\n";               
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j + 1] == 2 && currentBoard[i + 2][j + 2] == 2 && currentBoard[i + 3][j + 3] == 2)
             {
-                cout << "Blue has won!\n";
-                system("pause");
+                cout << "Blue has won!\n";                
                 return true;
             }
         }
@@ -160,14 +154,12 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j - 1] == 1 && currentBoard[i + 2][j - 2] == 1 && currentBoard[i + 3][j - 3] == 1)
             {
-                cout << "Red has won!\n";
-                //system("pause");
+                cout << "Red has won!\n";                
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j - 1] == 2 && currentBoard[i + 2][j - 2] == 2 && currentBoard[i + 3][j - 3] == 2)
             {
-                cout << "Blue has won!\n";
-                //system("pause");
+                cout << "Blue has won!\n";                
                 return true;
             }
         }
@@ -176,8 +168,7 @@ bool EndGame()
     //check if noone has got a match, hence match tied
     if (turns == 42)
     {
-        cout << "Draw game between Red and Blue, its a Tie" << endl;
-        system("pause");
+        cout << "Draw game between Red and Blue, its a Tie" << endl;        
         return true;
     }        
     return false;
