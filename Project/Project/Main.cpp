@@ -18,17 +18,13 @@ int columnMax[WIDTH] = { 0 };
 Sprite main_board;
 Sprite blue[21];
 Sprite red[21];
-VertexArray line(Lines, 2);
 
 void set()
 {
     board.loadFromFile("Images/board.png");
     red_checker.loadFromFile("Images/red.png");
     blue_checker.loadFromFile("Images/blue.png");
-    //line[0].position = Vector2f(0, 0);
-    line[0].color = Color::Black;
-    //line[1].position = Vector2f(0, 0);
-    line[1].color = Color::Black;
+
     main_board.setTexture(board);
     for (int i = 0; i < 21; i++)
     {
@@ -105,16 +101,14 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i][j + 1] == 1 && currentBoard[i][j + 2] == 1 && currentBoard[i][j + 3] == 1)
             {
-                cout << "Red has won!\n";  
-                line[0].position = Vector2f(((j+1) * 100) - 50, ((i+1) * 100)-50);
-                line[1].position = Vector2f(((j+1 + 3) * 100) - 50, ((i+1) * 100)-50);
+                cout << "Red has won!\n";
+                //system("pause");
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i][j + 1] == 2 && currentBoard[i][j + 2] == 2 && currentBoard[i][j + 3] == 2)
             {
-                cout << "Blue has won!\n"; 
-                line[0].position = Vector2f(((j+1) * 100) - 50, ((i+1) * 100) - 50);
-                line[1].position = Vector2f(((j+1 + 3) * 100) - 50, ((i+1) * 100) - 50);
+                cout << "Blue has won!\n";
+                //system("pause");
                 return true;
             }
         }
@@ -127,16 +121,14 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j] == 1 && currentBoard[i + 2][j] == 1 && currentBoard[i + 3][j] == 1)
             {
-                cout << "Red has won!\n";   
-                line[0].position = Vector2f(((j+1) * 100) - 50, ((i+1) * 100)-50);
-                line[1].position = Vector2f(((j+1) * 100) - 50, ((i+1 + 3) * 100)-50);
+                cout << "Red has won!\n";
+                //system("pause");
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j] == 2 && currentBoard[i + 2][j] == 2 && currentBoard[i + 3][j] == 2)
             {
-                cout << "Blue has won!\n";    
-                line[0].position = Vector2f(((j + 1) * 100) - 50, ((i + 1) * 100) - 50);
-                line[1].position = Vector2f(((j + 1) * 100) - 50, ((i + 1 + 3) * 100) - 50);
+                cout << "Blue has won!\n";
+                //system("pause");
                 return true;
             }
         }
@@ -149,16 +141,14 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j + 1] == 1 && currentBoard[i + 2][j + 2] == 1 && currentBoard[i + 3][j + 3] == 1)
             {
-                cout << "Red has won!\n";   
-                line[0].position = Vector2f(((j+1) * 100)-50, ((i + 1) * 100) - 50);
-                line[1].position = Vector2f(((j + 1 + 3) * 100) - 50, ((i+1 + 3) * 100)-50);
+                cout << "Red has won!\n";
+                system("pause");
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j + 1] == 2 && currentBoard[i + 2][j + 2] == 2 && currentBoard[i + 3][j + 3] == 2)
             {
                 cout << "Blue has won!\n";
-                line[0].position = Vector2f(((j + 1) * 100) - 50, ((i+1) * 100)-50);
-                line[1].position = Vector2f(((j + 1 + 3) * 100) - 50, ((i+1 + 3) * 100)-50);
+                system("pause");
                 return true;
             }
         }
@@ -170,16 +160,14 @@ bool EndGame()
         {
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j - 1] == 1 && currentBoard[i + 2][j - 2] == 1 && currentBoard[i + 3][j - 3] == 1)
             {
-                cout << "Red has won!\n";   
-                line[0].position = Vector2f(((j + 1) * 100) - 50, ((i+1) * 100)-50);
-                line[1].position = Vector2f(((j + 1 - 3) * 100) - 50, ((i+1 + 3) * 100)-50);
+                cout << "Red has won!\n";
+                //system("pause");
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j - 1] == 2 && currentBoard[i + 2][j - 2] == 2 && currentBoard[i + 3][j - 3] == 2)
             {
-                cout << "Blue has won!\n";      
-                line[0].position = Vector2f(((j + 1) * 100) - 50, ((i + 1) * 100) - 50);
-                line[1].position = Vector2f(((j + 1 - 3) * 100) - 50, ((i + 1 + 3) * 100) - 50);
+                cout << "Blue has won!\n";
+                //system("pause");
                 return true;
             }
         }
@@ -188,7 +176,8 @@ bool EndGame()
     //check if noone has got a match, hence match tied
     if (turns == 42)
     {
-        cout << "Draw game between Red and Blue, its a Tie!" << endl;        
+        cout << "Draw game between Red and Blue, its a Tie" << endl;
+        system("pause");
         return true;
     }        
     return false;
@@ -196,17 +185,12 @@ bool EndGame()
 
 int main()
 {
-    RenderWindow window(sf::VideoMode(700, 600), "Connect 4 the Game");
-    Font font;
-    font.loadFromFile("Fonts/Myfont.ttf");
-    Text text;
-    text.setFont(font);
-    text.setString("Hello! This is a 2-player Game, so hope you have got \nyour partner alongside, the turn takes place with\nevery Mouse Click. There are red balls and blue balls,\nevery click inserts a ball into the respective column, \nstarting with Red, so whoever starts the game is Red\nand the other player would be Blue! The Player who\ncan successfully connect 4 same coloured balls in a\nstraight Line, horizontally, vertically, or diagonally\nwins the Game! Hit Enter to Start..");
-    text.setCharacterSize(24);
-    text.setFillColor(sf::Color::Red);
-    
+    RenderWindow window(sf::VideoMode(700, 600), "Connect4");
+    //CircleShape shape(100.f);
+    //shape.setFillColor(sf::Color::Blue);
+    set();
     while (window.isOpen())
-    {        
+    {
         Event e;
         Vector2i pos;
         while (window.pollEvent(e))
@@ -214,11 +198,6 @@ int main()
             if (e.type == Event::Closed)
             {
                 window.close();
-            }
-            if (e.type == Event::KeyPressed)
-            {
-                if (e.key.code == Keyboard::Enter)
-                    set();
             }
             if (e.type == Event::MouseButtonPressed)
             {
@@ -228,7 +207,8 @@ int main()
                     pos.x /= 100;
                     pos.y /= 100;
                     pos.x++;
-                    pos.y++;                    
+                    pos.y++;
+                    //cout << pos.x << " " << pos.y << endl;
                     if (redTurn)
                     {
                         PlayRedTurn(pos.x);                        
@@ -242,32 +222,22 @@ int main()
             }
         }
         window.clear();
-        window.draw(text);
-        window.draw(main_board);        
+        window.draw(main_board);
         for (int i = 0; i < redcount; i++) 
         {
-            window.draw(red[i]);           
+            window.draw(red[i]);
         }
         for (int i = 0; i < bluecount; i++)
         {
-            window.draw(blue[i]);            
-        }        
-        window.display();        
+            window.draw(blue[i]);
+        }
+        window.display();
         if (EndGame())
         {
-            for (int i = 0; i < redcount; i++)
-            {
-                window.draw(red[i]);
-            }
-            for (int i = 0; i < bluecount; i++)
-            {
-                window.draw(blue[i]);
-            }
-            window.draw(line);
-            window.display();
             system("pause");
             set();
         }
     }
+
     return 0;
 }
