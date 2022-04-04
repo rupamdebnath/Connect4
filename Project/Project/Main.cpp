@@ -266,6 +266,7 @@ int main()
             window.draw(line);
             window.display();
             system("pause");
+            window.clear();
             set();
         }
     }
