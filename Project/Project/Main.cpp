@@ -168,7 +168,7 @@ bool EndGame()
     //check if noone has got a match, hence match tied
     if (turns == 42)
     {
-        cout << "Draw game between Red and Blue, its a Tie" << endl;        
+        cout << "Draw game between Red and Blue, its a Tie!" << endl;        
         return true;
     }        
     return false;
@@ -177,8 +177,7 @@ bool EndGame()
 int main()
 {
     RenderWindow window(sf::VideoMode(700, 600), "Connect4");
-    //CircleShape shape(100.f);
-    //shape.setFillColor(sf::Color::Blue);
+
     set();
     while (window.isOpen())
     {
@@ -198,8 +197,7 @@ int main()
                     pos.x /= 100;
                     pos.y /= 100;
                     pos.x++;
-                    pos.y++;
-                    //cout << pos.x << " " << pos.y << endl;
+                    pos.y++;                    
                     if (redTurn)
                     {
                         PlayRedTurn(pos.x);                        
