@@ -150,15 +150,15 @@ bool EndGame()
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j + 1] == 1 && currentBoard[i + 2][j + 2] == 1 && currentBoard[i + 3][j + 3] == 1)
             {
                 cout << "Red has won!\n";   
-                line[0].position = Vector2f(((i+1) * 100) - 50, ((j+1) * 100)-50);
-                line[1].position = Vector2f(((i+1 + 3) * 100)-50, ((j+1 + 3) * 100)-50);
+                line[0].position = Vector2f(((j+1) * 100)-50, ((i + 1) * 100) - 50);
+                line[1].position = Vector2f(((j + 1 + 3) * 100) - 50, ((i+1 + 3) * 100)-50);
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j + 1] == 2 && currentBoard[i + 2][j + 2] == 2 && currentBoard[i + 3][j + 3] == 2)
             {
                 cout << "Blue has won!\n";
-                line[0].position = Vector2f(((i+1) * 100)-50, ((j+1) * 100)-50);
-                line[1].position = Vector2f(((i+1 + 3) * 100)-50, ((j+1 + 3) * 100)-50);
+                line[0].position = Vector2f(((j + 1) * 100) - 50, ((i+1) * 100)-50);
+                line[1].position = Vector2f(((j + 1 + 3) * 100) - 50, ((i+1 + 3) * 100)-50);
                 return true;
             }
         }
@@ -171,15 +171,15 @@ bool EndGame()
             if (currentBoard[i][j] == 1 && currentBoard[i + 1][j - 1] == 1 && currentBoard[i + 2][j - 2] == 1 && currentBoard[i + 3][j - 3] == 1)
             {
                 cout << "Red has won!\n";   
-                line[0].position = Vector2f(((i+1) * 100)-50, ((j+1) * 100)-50);
-                line[1].position = Vector2f(((i+1 + 3) * 100)-50, ((j+1 - 3) * 100)-50);
+                line[0].position = Vector2f(((j + 1) * 100) - 50, ((i+1) * 100)-50);
+                line[1].position = Vector2f(((j + 1 - 3) * 100) - 50, ((i+1 + 3) * 100)-50);
                 return true;
             }
             else if (currentBoard[i][j] == 2 && currentBoard[i + 1][j - 1] == 2 && currentBoard[i + 2][j - 2] == 2 && currentBoard[i + 3][j - 3] == 2)
             {
                 cout << "Blue has won!\n";      
-                line[0].position = Vector2f(((i + 1) * 100) - 50, ((j + 1) * 100) - 50);
-                line[1].position = Vector2f(((i + 1 + 3) * 100) - 50, ((j + 1 - 3) * 100) - 50);
+                line[0].position = Vector2f(((j + 1) * 100) - 50, ((i + 1) * 100) - 50);
+                line[1].position = Vector2f(((j + 1 - 3) * 100) - 50, ((i + 1 + 3) * 100) - 50);
                 return true;
             }
         }
@@ -270,7 +270,8 @@ int main()
         }
         else if (EndGame() && turns == 42)
         {
-
+            system("pause");
+            set();
         }
     }
     return 0;
