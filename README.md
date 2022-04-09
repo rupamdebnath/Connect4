@@ -4,7 +4,7 @@
 
 ![Connect4Demo](https://user-images.githubusercontent.com/44625252/162564921-b8d80428-7bd8-446b-8e78-0ffb9b9520d4.gif)
 
-## Clone this project along with submodules
+## Clone this project along with submodules (Note: Need to have cmake installed for building using cmake)
 $ git clone --recursive https://github.com/rupamdebnath/Connect4.git
 
 ## Go to project root
