@@ -24,7 +24,9 @@ $ cmake ..
 
 ## This will generate project files using default cmake generator for your platform. For example:
 On Windows with Visual Studio installed, it will generate a .sln
+
 On Linux with make installed, it will generate a Makefile
+
 On Mac with xcode installed, it will generate a .xcodeproj
 
 ## If you are using gitBash or any terminal on Windows then run this next
